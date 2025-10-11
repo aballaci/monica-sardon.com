@@ -1,0 +1,84 @@
+/* palette + fonts to match the header style */
+$gold: #ffc444;
+$ink: #0f0f0f;
+$muted: #7a7a7a;
+
+.bio {
+  background: #fff;
+  padding: clamp(40px, 6vw, 80px) 0;
+  color: $ink;
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+/* two-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+}
+
+/* left column */
+.portrait {
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .credit {
+    margin-top: 10px;
+    font: 400 12px/1.4 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: $muted;
+  }
+}
+
+/* right column */
+.copy {
+  max-width: 60ch;
+}
+
+.accent {
+  display: inline-block;
+  width: 28px;
+  height: 6px;
+  background: $gold;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+
+.title {
+  /* Unica One look */
+  font-family: 'Unica One', sans-serif;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-transform: none;
+  font-size: clamp(28px, 3.8vw, 44px);
+  margin: 0 0 14px 0;
+}
+
+.copy p {
+font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;    /* ~18px */
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.85;
+  margin: 0 0 14px 0;
+  color: #2a2a2a;
+}
+
+/* responsive: stack columns */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .copy { max-width: none; }
+}

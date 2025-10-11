@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="shell">
+    <!-- Left: brand -->
+    <a class="brand" routerLink="/">
+      Mónica Sardón Hidalgo
+    </a>
+
+    <!-- Center: nav -->
+    <nav class="mainnav">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">Startseite</a>
+      <a routerLink="/concerts" routerLinkActive="is-active">Konzerte</a>
+      <a routerLink="/bio" routerLinkActive="is-active">Bio</a>
+      <a routerLink="/contact" routerLinkActive="is-active">Kontakt</a>
+      <span class="accent" aria-hidden="true"></span>
+    </nav>
+
+    <!-- Right: language pills -->
+    <div class="langs">
+      <a class="pill" href="#"><span class="flag">🇪🇸</span><span class="label">Español</span></a>
+      <a class="pill" href="#"><span class="flag">🇩🇪</span><span class="label">Deutsch</span></a>
+    </div>
+  </div>
+</header>

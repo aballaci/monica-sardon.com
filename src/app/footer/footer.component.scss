@@ -1,0 +1,15 @@
+$black: #1c1c1c;
+
+.footer {
+  background: $black;
+  color: #cfcfcf;
+  padding: 14px 0;
+  text-align: center;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+}
