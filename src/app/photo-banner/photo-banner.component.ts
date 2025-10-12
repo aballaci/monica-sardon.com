@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
     .photo-banner img {
       display: block;
       width: auto;
-      max-width: 100%;
+      max-width: 1200px;  /* natural image width */
       height: auto;
       object-fit: contain;          /* keeps full image visible */
     }

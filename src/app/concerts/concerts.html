@@ -1,4 +1,65 @@
 <section class="concerts">
-  <h2>Upcoming Concerts</h2>
-  <p>Stay tuned for the next performances and events!</p>
+    <div class="container">
+        <h2 class="page-title">Konzerte</h2>
+
+        @if (loading()) {
+        <p>Laden…</p>
+        } @else if (hasEvents()) {
+        <ul class="cards">
+            @for (ev of events(); track ev.sys.id) {
+            <li class="card"
+                [class.is-cancelled]="ev.fields['cancelled'] === true || ev.fields['status'] === 'cancelled'">
+
+                @if (ev.fields['cancelled'] === true || ev.fields['status'] === 'cancelled') {
+                <span class="ribbon cancelled" aria-label="Abgesagt">Abgesagt</span>
+                }
+                <!-- date badge -->
+                <div class="date-badge">
+                    <span class="month">{{ $any(ev.fields)['date'] | date:'LLL':'':'de' | uppercase }}</span>
+                    <span class="day">{{ $any(ev.fields)['date'] | date:'d' }}</span>
+                    <span class="time">{{ $any(ev.fields)['date'] | date:'HH:mm' }}</span>
+                </div>
+                <!-- main -->
+                <div class="main">
+                    <h3 class="title">{{ ev.fields['title'] }}</h3>
+
+                    @if (ev.fields['description']) {
+                    <div class="desc" [innerHTML]="ev.fields['description'] | richtext"></div>
+                    }
+
+                    <div class="meta">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
+                        </svg>
+
+                        <span class="place">
+                            {{ ev.fields['address'] }}
+                        </span>
+
+                        <span class="dot">·</span>
+                        <!-- <span class="time">{{ $any(ev.fields)['date'] | date:'HH:mm' }}</span> -->
+                    </div>
+                </div>
+
+                <!-- actions -->
+                <div class="actions">
+                    @if (ev.fields['soldOut']) {
+                    <span class="badge soldout">Sold out</span>
+                    } @else if (ev.fields['ticketUrl']) {
+                    <a class="btn primary" [href]="ev.fields['ticketUrl']" target="_blank" rel="noopener">Tickets</a>
+                    }
+                    @if (ev.fields['infoUrl']) {
+                    <a class="btn ghost" [href]="ev.fields['infoUrl']" target="_blank" rel="noopener">Info</a>
+                    }
+                </div>
+            </li>
+            }
+        </ul>
+        } @else if (error()) {
+        <p>Fehler: {{ error() }}</p>
+        } @else {
+        <p>Der Spielplan wird bald veröffentlicht.</p>
+        }
+    </div>
 </section>

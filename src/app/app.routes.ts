@@ -1,7 +1,7 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { PhotoBannerComponent } from './photo-banner/photo-banner.component';
-import { Concerts } from './concerts/concerts';
+import { ConcertsComponent } from './concerts/concerts';
 import { BioComponent } from './bio/bio.component';
 import { ContactsComponent } from './contact/contact.component';
 
@@ -16,7 +16,7 @@ export const routes: Routes = [
     },   // ← home
     {
         path: 'concerts',
-        component: Concerts
+        component: ConcertsComponent
     },
     {
         path: 'bio',

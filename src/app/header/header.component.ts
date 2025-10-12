@@ -10,4 +10,6 @@ import { RouterModule } from '@angular/router';
 export class AppHeaderComponent {
   name = 'Mónica Sardón Hidalgo';
   roles = 'Violinistin | Veranstalterin | Pädagogin';
+  locale: 'es' | 'de' = 'de'; // or grab from your i18n service / localStorage
+  setLocale(l: 'es'|'de') { this.locale = l; /* TODO: trigger your i18n change */ }
 }

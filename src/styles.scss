@@ -1,41 +1,58 @@
-/* GLOBAL RESET + PAGE STRUCTURE */
-html, body {
-  height: 100%;               /* full-height layout base */
-  margin: 0;
-  padding: 0;
+/* layout + sticky footer (kept) */
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 * {
-  box-sizing: border-box;     /* consistent sizing everywhere */
+    box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  flex-direction: column;     /* vertical stacking */
-  min-height: 100vh;          /* ensures full viewport height */
-  background: #fff;
-}
-
-/* make angular root fill the available space */
+body,
 app-root {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #ffc444;
+    /* <-- PAGE-WIDE GOLD */
 }
 
-/* ensure router content expands */
-router-outlet + * {
-  flex: 1 0 auto;
+/* routed content stretches */
+main.page {
+    flex: 1 0 auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
 }
 
-/* optional: unify default typography */
-body {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #111;
+/* footer stays at the bottom */
+app-site-footer .footer {
+    margin-top: auto;
+}
+
+/* sections that should NOT be gold keep their own bg */
+.hero {
+    background: #1c1c1c;
+}
+
+/* black band */
+.site-header {
+    background: #fff;
+}
+
+/* white header bar */
+.bio {
+    background: #fff;
+}
+
+/* white bio area (keep if desired) */
+
+:root {
+    /* same value your header uses for its inner left padding */
+    --site-gutter: clamp(16px, 4vw, 40px);
+    --header-h: 212.59px;
+    /* match your real header height */
+    --footer-h: 0px;
+    /* set >0 if a footer is visible while concerts is open */
 }

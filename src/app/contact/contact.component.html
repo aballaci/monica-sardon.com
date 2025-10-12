@@ -1,3 +1,4 @@
+<!-- contacts.component.html -->
 <section class="contact">
   <div class="container">
     <span class="accent" aria-hidden="true"></span>
@@ -5,21 +6,17 @@
 
     <form #f="ngForm" (ngSubmit)="submit(f)" novalidate class="form">
       <label for="email">E-Mail</label>
-      <input id="email"
-             name="email"
-             type="email"
+      <input id="email" name="email" type="email"
              placeholder="hola@ejemplo.com"
-             [(ngModel)]="model.email"
-             required email>
+             [(ngModel)]="model.email" required email>
 
       <label for="message">Nachricht</label>
-      <textarea id="message"
-                name="message"
-                rows="6"
-                [(ngModel)]="model.message"
-                required></textarea>
+      <textarea id="message" name="message" rows="6"
+                [(ngModel)]="model.message" required></textarea>
 
-      <button class="btn" type="submit" [disabled]="!f.valid">Senden</button>
+      <div class="actions">
+        <button class="btn" type="submit" [disabled]="!f.valid">Senden</button>
+      </div>
 
       <p class="ok" *ngIf="sent">Danke! Deine Nachricht wurde erfasst.</p>
     </form>

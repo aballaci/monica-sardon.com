@@ -1,89 +1,50 @@
 $gold: #ffc444;
 $black: #1c1c1c;
 $ink: #0f0f0f;
-$muted: #8b8b8b;
 
-/* Panel */
 .contact {
   background: $gold;
+  margin: 0;                  /* no outside gap */
   padding: clamp(28px, 5vw, 56px) 0;
-  color: $ink;
 }
 
-.container {
-  width: min(900px, 92vw);
+.contact .container {
+  width: min(1200px, 92vw);
   margin-inline: auto;
 }
 
-/* Title */
-.accent {
-  display: inline-block;
-  width: 28px;
-  height: 6px;
-  background: $black;
-  border-radius: 3px;
-  margin-bottom: 12px;
-}
+/* title/accents (unchanged) */
+.accent { display:inline-block; width:28px; height:6px; background:$black; border-radius:3px; margin-bottom:12px; }
+.title  { font-family:'Unica One',sans-serif; font-weight:400; letter-spacing:-1px; line-height:1.1; font-size:clamp(30px,4.2vw,44px); margin:0 0 18px; }
 
-.title {
-  font-family: 'Unica One', sans-serif;
-  font-weight: 400;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  text-transform: none;
-  font-size: clamp(30px, 4.2vw, 44px);
-  margin: 0 0 18px 0;
+/* form layout */
+.form { display:grid; gap:10px; }
+label { font-family:'Roboto',sans-serif; font-size:0.875rem; color:$ink; }
+input, textarea {
+  font-family:'Roboto',sans-serif; font-size:1rem;
+  padding:10px 12px; border:1px solid #ddd; background:#fff; color:#111; outline:none;
 }
+input:focus, textarea:focus { border-color:#c7c7c7; }
 
-/* Form */
-.form {
-  display: grid;
-  gap: 10px;
+/* right-aligned, smaller, black button */
+.actions {
+  display:flex;
+  justify-content:flex-end;   /* push button to the right */
+  margin-top: 6px;
 }
-
-label {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.875rem;
-  color: $ink;
-}
-
-input,
-textarea {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #111;
-  outline: none;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #c7c7c7;
-}
-
-/* Button */
 .btn {
-  margin-top: 10px;
-  display: inline-block;
-  padding: 10px 18px;
-  border: none;
+  padding: 8px 14px;          /* smaller */
   background: $black;
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:600;
+  cursor:pointer;
   transition: transform .15s ease, opacity .15s ease;
 }
-
-.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn:disabled { opacity:.6; cursor:not-allowed; }
 .btn:not(:disabled):hover { transform: translateY(-1px); }
 
-/* Sent note */
-.ok {
-  margin-top: 8px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.95rem;
-  color: $ink;
-}
+/* success text */
+.ok { margin-top:8px; font-family:'Roboto',sans-serif; font-size:.95rem; color:$ink; }
