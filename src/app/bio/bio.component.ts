@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./bio.component.scss']
 })
 export class BioComponent {
-  @Input() imageSrc = './bio-monica.jpg';
+  @Input() imageSrc = 'assets/bio-monica.jpg';
   @Input() imageAlt = 'Mónica Sardón Hidalgo';
   @Input() credit = '© Anna Dorokhova';
 

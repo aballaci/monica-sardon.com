@@ -29,6 +29,6 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export class PhotoBannerComponent {
-  @Input() src = './main-page-playing-violin-on-the-street.jpg';
+  @Input() src = 'assets/main-page-playing-violin-on-the-street.jpg';
   @Input() alt = 'Mónica Sardón Hidalgo performing';
 }
