@@ -115,6 +115,11 @@ $palewhite: rgba(255,255,255,.75);
   .dot { opacity: .6; }
 }
 
+.place {
+  font-weight: 600;
+  color: $palewhite
+}
+
 .actions { display: flex; gap: 10px; align-self: center; }
 
 .btn {

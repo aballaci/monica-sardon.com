@@ -5,8 +5,6 @@ import { ContentfulService } from '../contentful';
 import { DatePipe, UpperCasePipe } from '@angular/common';
 import { RichtextPipe } from '../pipes/richtext.pipe';
 import type { Document } from '@contentful/rich-text-types';
-import { PlaceNamePipe } from '../pipes/place-name.pipe';
-import { PlaceUrlPipe } from '../pipes/place-url.pipe';
 
 @Component({
   selector: 'app-concerts',
@@ -42,7 +40,7 @@ export class ConcertsComponent implements OnInit {
       this.loading.set(true);
       const items = await this.cf.getEvents({
         'fields.date[gte]': this.startOfTodayUTC(), // 👈 same as &fields.date[gte]=...Z
-        content_type: 'event',                  // usually your method sets this already
+        content_type: 'concert',                  // usually your method sets this already
         order: ['fields.date']                  // optional: sort ascending by date
       });
       if (isDevMode()) console.log('[UI] events:', items);
