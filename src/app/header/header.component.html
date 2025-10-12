@@ -17,14 +17,12 @@
         <!-- Right: language pills (SVG assets) -->
         <div class="langs">
             <a class="pill" lang="es" hreflang="es" [class.is-active]="locale === 'es'" href="#">
-                <img class="flag" src="es.svg" width="18" height="12" alt="Español" loading="lazy"
-                    decoding="async">
+                <img class="flag" src="es.svg" width="18" height="12" alt="Español" loading="lazy" decoding="async">
                 <span class="label">Español</span>
             </a>
 
             <a class="pill" lang="de" hreflang="de" [class.is-active]="locale === 'de'" href="#">
-                <img class="flag" src="de.svg" width="18" height="12" alt="Deutsch" loading="lazy"
-                    decoding="async">
+                <img class="flag" src="de.svg" width="18" height="12" alt="Deutsch" loading="lazy" decoding="async">
                 <span class="label">Deutsch</span>
             </a>
         </div>
@@ -38,12 +36,30 @@
                 <h1 class="roles">Violinistin | Veranstalterin | Pädagogin</h1>
             </div>
         </section>
-        <!-- Gold band + socials -->
         <div class="gold-band">
-            <div class="socials">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="site-container">
+                <div class="socials">
+                    <a href="https://www.facebook.com/monica.h.39/" target="_blank" rel="noopener" aria-label="Facebook"
+                        class="social">
+                        <!-- Facebook SVG -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.19 8.45 9.94v-7.03H8.3V12h2.15v-1.9c0-2.12 1.26-3.29 3.2-3.29.93 0 1.9.17 1.9.17v2.1h-1.07c-1.06 0-1.39.66-1.39 1.33V12h2.37l-.38 2.97h-1.99v7.03C18.34 21.25 22 17.08 22 12.06z" />
+                        </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/monsarhi" target="_blank" rel="noopener" aria-label="Instagram"
+                        class="social">
+                        <!-- Instagram SVG -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6.25-3.25a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25z" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
+
+
     </section>
 </header>

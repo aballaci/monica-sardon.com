@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./bio.component.scss']
 })
 export class BioComponent {
-  @Input() imageSrc = 'https://files.builder.misssite.com/76/16/7616f64e-2c9c-4784-a7ea-7bfacd7e4c40.jpg';
+  @Input() imageSrc = './bio-monica.jpg';
   @Input() imageAlt = 'Mónica Sardón Hidalgo';
   @Input() credit = '© Anna Dorokhova';
 

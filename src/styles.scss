@@ -51,8 +51,18 @@ app-site-footer .footer {
 :root {
     /* same value your header uses for its inner left padding */
     --site-gutter: clamp(16px, 4vw, 40px);
-    --header-h: 212.59px;
+    --header-h: 224.59px;
     /* match your real header height */
     --footer-h: 0px;
     /* set >0 if a footer is visible while concerts is open */
+    
+}
+
+:root{
+  --container-max: 1200px;              /* match your hero */
+  --site-gutter: clamp(16px, 4vw, 40px);/* match your hero */
+}
+.site-container{
+  width: min(var(--container-max), 100% - 2*var(--site-gutter));
+  margin-inline: auto;
 }

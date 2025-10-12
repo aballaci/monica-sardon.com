@@ -29,6 +29,6 @@ import { Component, Input } from '@angular/core';
   `]
 })
 export class PhotoBannerComponent {
-  @Input() src = 'https://files.builder.misssite.com/08/6a/086a5050-24e4-4af7-9110-e21b37576255.jpg';
+  @Input() src = './main-page-playing-violin-on-the-street.jpg';
   @Input() alt = 'Mónica Sardón Hidalgo performing';
 }

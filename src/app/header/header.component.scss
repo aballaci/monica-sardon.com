@@ -95,30 +95,28 @@ color: $gold;
   opacity: 0.95;
 }
 
-/* Gold bar & socials centered */
 .gold-band {
-  background: $gold;
-  padding: 12px 0;
-  text-align: center;
-
-  .socials {
-    display: inline-flex;
-    gap: 18px;
-
-    a {
-      color: #1a1a1a;
-      font-size: 16px;
-      text-decoration: none;
-      opacity: .9;
-      transition: opacity .15s ease, transform .15s ease;
-
-      &:hover {
-        opacity: 1;
-        transform: translateY(-1px);
-      }
-    }
-  }
+  background: #ffc444;
+  padding: 10px 16px;
 }
+.socials {
+  display: flex;
+  gap: 14px;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.08);
+  transition: transform .15s ease, background .15s ease, opacity .15s ease;
+}
+.socials a:hover { transform: translateY(-1px); background: rgba(0,0,0,.14); }
+
+.socials i { font-size: 16px; color: #111; }       /* Font Awesome */
+.socials .social svg { width: 18px; height: 18px; fill: #111; } /* SVG */
+
 
 /* shared container already exists */
 .container { width: min(1200px, 92vw); margin-inline: auto; }
