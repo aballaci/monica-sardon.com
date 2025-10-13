@@ -1,275 +1,369 @@
-/* PALETTE (site-aligned) */
-$ink:  #0f0f0f;
+/* ===================================
+   concerts.component.scss - OPTIMIZED
+   =================================== */
+
+/* PALETTE */
+$ink: #0f0f0f;
 $gold: #ffc444;
-$night: rgba(17,17,17,.74);    /* darker, more transparent card */
+$night: rgba(17,17,17,.74);
 $stroke: rgba(255,255,255,.10);
 $muted: rgba(255,255,255,.75);
-$accent: #9bd8ff;  
-$palewhite: rgba(255,255,255,.75);  
+$accent: #9bd8ff;
+$palewhite: rgba(255,255,255,.75);
+$con-bgo: rgb(77, 5, 5);
+$img: url('https://files.builder.misssite.com/fc/64/fc64bc81-536a-43af-95e3-c0edb167977d.jpg');
 
-.concerts {
-  background: transparent;         /* lets your gold page bg shine through */
-  padding: clamp(24px, 4vw, 40px) 0;
-  color: $palewhite
+/* ===== HOST SETUP (viewport lock) ===== */
+:host {
+  position: fixed;
+  top: var(--header-h, 0);
+  left: 0;
+  right: 0;
+  bottom: var(--footer-h, 0);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  
+  /* Background */
+  background-image: $img;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  isolation: isolate;
+  
+  /* Overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 0;
+    
+    @media (min-width: 992px) {
+      background: rgba(0,0,0,.35);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    background-attachment: scroll;
+  }
 }
 
-.concerts .container {
-  width: min(1200px, 92vw);
+/* ===== MAIN SECTION ===== */
+.concerts {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  padding: clamp(16px, 4vw, 56px) clamp(12px, 4vw, 24px);
+  color: $palewhite;
+}
+
+.container {
+  width: min(1200px, 100%);
   margin-inline: auto;
 }
 
-.container { width: min(980px, 92vw); margin-inline: auto; }
-
 .page-title {
   font-family: 'Unica One', sans-serif;
-  font-weight: 400; letter-spacing: -1px; line-height: 1.1;
-  font-size: clamp(28px, 3.4vw, 40px);
-  margin: 0 0 10px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  font-size: clamp(24px, 5.5vw, 40px);
+  margin: 0 0 clamp(12px, 3vw, 20px);
+  color: $palewhite;
 }
 
-.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.status-msg {
+  font-family: Roboto, sans-serif;
+  font-size: clamp(14px, 3vw, 16px);
+  color: $muted;
+  padding: 20px;
+  text-align: center;
+  
+  &.error { color: #ff6b7a; }
+}
+
+/* ===== CARDS GRID ===== */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(10px, 2vw, 14px);
+}
 
 .card {
+  position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 18px;
+  gap: clamp(12px, 3vw, 18px);
   align-items: center;
-  padding: 16px;
-  background: $night;               /* translucent */
-  border: 1px solid $night;
-  border-radius: 16px;
-  background: $night;                  /* darker + see-through */
+  padding: clamp(12px, 3vw, 16px);
+  background: $night;
   border: 1px solid $stroke;
-  box-shadow: 0 6px 24px rgba(0,0,0,.25);
-  color: $palewhite
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  color: $palewhite;
+  overflow: hidden; /* Contains ribbon */
 }
 
-/* ===== Date badge (month/day/time column) ===== */
+/* ===== DATE BADGE ===== */
 .date-badge {
-  display: grid;
-  grid-auto-rows: min-content;
-  align-content: center;
-  justify-items: center;
-  padding: 6px 14px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 1.5vw, 8px);
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 16px);
   border-right: 1px solid $stroke;
-  min-width: 84px;
+  min-width: clamp(70px, 15vw, 90px);
+  flex-shrink: 0;
 
   .month {
     display: inline-block;
-    font: 700 11px/1 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    font: 700 clamp(9px, 2vw, 11px)/1 'Montserrat', system-ui, sans-serif;
     letter-spacing: .6px;
+    text-transform: uppercase;
     color: #0b2430;
-    background: rgba($gold,.85);     /* cool highlight */
-    padding: 4px 8px;
-    border-radius: 8px;
+    background: rgba($gold,.85);
+    padding: clamp(3px, 1vw, 4px) clamp(6px, 1.5vw, 8px);
+    border-radius: 6px;
   }
+  
   .day {
     font-family: 'Unica One', sans-serif;
     font-weight: 400;
-    font-size: 44px;
-    line-height: 1;
+    font-size: clamp(32px, 8vw, 44px);
+    line-height: .95;
     color: $palewhite;
-    margin-top: 8px;
   }
+  
   .time {
-    margin-top: 6px;
-    font: 600 14px/1 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    font: 600 clamp(11px, 2.5vw, 14px)/1 'Montserrat', system-ui, sans-serif;
     letter-spacing: .6px;
     color: $muted;
+    white-space: nowrap;
   }
 }
 
-.main { min-width: 0; }
+/* ===== MAIN CONTENT ===== */
+.main {
+  min-width: 0;
+}
+
 .title {
-  margin: 0 0 6px; color: rgba(255,255,255,.75);
-  font-family: 'Unica One', sans-serif; font-weight: 400;
-  letter-spacing: -.5px; line-height: 1.15;
-  font-size: clamp(22px, 3vw, 32px);
-}
-.desc :where(p, ul, ol, blockquote) {
-  margin: 0 0 6px; 
-  font-family: 'Unica One', sans-serif; font-weight: 400;
-  font-size: 1.125rem;    /* ~18px */
+  margin: 0 0 clamp(4px, 1vw, 6px);
+  color: rgba(255,255,255,.75);
+  font-family: 'Unica One', sans-serif;
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.85;
-  margin: 0 0 14px 0;
-  color: $palewhite
+  letter-spacing: -.5px;
+  line-height: 1.15;
+  font-size: clamp(18px, 4vw, 32px);
 }
 
-.desc{
-  margin: 0 0 6px; 
-  font-family: Roboto, sans-serif; font-size: 1.05rem;
-  font-size: 1.125rem;    /* ~18px */
+.desc {
+  margin: 0 0 clamp(8px, 2vw, 14px);
+  font-family: Roboto, sans-serif;
+  font-size: clamp(14px, 3vw, 18px);
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.85;
-  margin: 0 0 14px 0;
-  color: $palewhite
+  line-height: 1.6;
+  color: $palewhite;
+  
+  :where(p, ul, ol, blockquote) {
+    margin: 0 0 6px;
+  }
 }
+
 .meta {
-  display: flex; align-items: center; gap: 8px;
-  font-family: Roboto, sans-serif; font-size: 1.05rem; color: #3a3a3a;
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.5vw, 8px);
+  font-family: Roboto, sans-serif;
+  font-size: clamp(13px, 2.5vw, 16px);
+  color: $muted;
 
-  .icon { width: 18px; height: 18px; fill: $palewhite; opacity: .75; flex: 0 0 auto; }
-  .dot { opacity: .6; }
+  .icon {
+    width: clamp(16px, 3.5vw, 18px);
+    height: clamp(16px, 3.5vw, 18px);
+    fill: $palewhite;
+    opacity: .75;
+    flex: 0 0 auto;
+  }
 }
 
 .place {
   font-weight: 600;
-  color: $palewhite
+  color: $palewhite;
 }
 
-.actions { display: flex; gap: 10px; align-self: center; }
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(6px, 2vw, 10px);
+  align-self: center;
+}
 
 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 10px 16px; border-radius: 999px;
-  font: 700 14px/1 'Montserrat', sans-serif;
-  text-decoration: none; border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 16px);
+  border-radius: 999px;
+  font: 700 clamp(12px, 2.5vw, 14px)/1 'Montserrat', sans-serif;
+  text-decoration: none;
+  border: 1px solid transparent;
   transition: transform .12s ease, background .12s ease, border-color .12s ease;
-}
-.btn.primary { background: #1c1c1c; color:#fff; }
-.btn.primary:hover { transform: translateY(-1px); background:#121212; }
-.btn.ghost   { background: transparent; color:#1c1c1c; border-color: rgba(0,0,0,.3); }
-.btn.ghost:hover { transform: translateY(-1px); border-color:#1c1c1c; }
-
-@media (max-width: 720px) {
-  .card { grid-template-columns: 1fr; gap: 12px; }
-  .date-badge { width: auto; padding-right: 0; border-right: 0; justify-self: start; }
-  .actions { justify-self: start; }
-}
-
-
-/* === Full-screen background just for the concerts page === */
-$con-bgo: rgb(77, 5, 5);        // overlay darkness
-$img: url('https://files.builder.misssite.com/fc/64/fc64bc81-536a-43af-95e3-c0edb167977d.jpg');
-
-.concerts {
-  position: relative;
-  /* full-viewport background */
-  min-height: 100dvh;
-  background-image: $img;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;   /* parallax-y feel */
-  isolation: isolate;             /* ensure overlay z-index works */
-
-  /* dim overlay for readability */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: $con-bgo;
-    z-index: 0;
+  white-space: nowrap;
+  
+  &.primary {
+    background: #1c1c1c;
+    color: #fff;
+    
+    &:hover {
+      transform: translateY(-1px);
+      background: #121212;
+    }
   }
-
-  /* put all page content above the overlay */
-  > .container,
-  .cards,
-  .card { position: relative; z-index: 1; }
+  
+  &.ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,.3);
+    
+    &:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.6);
+    }
+  }
 }
 
-/* If you want lighter overlay on large screens */
-@media (min-width: 992px) {
-  .concerts::before { background: rgba(0,0,0,.35); }
+.badge.soldout {
+  display: inline-flex;
+  align-items: center;
+  padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 14px);
+  border-radius: 999px;
+  font: 700 clamp(11px, 2.5vw, 13px)/1 'Montserrat', sans-serif;
+  background: rgba(255, 196, 68, .14);
+  color: $gold;
+  border: 1px solid rgba(255, 196, 68, .35);
 }
 
-/* Respect reduced motion (avoid fixed parallax on some devices) */
-@media (prefers-reduced-motion: reduce) {
-  .concerts { background-attachment: scroll; }
-}
-
-/* Lock the component to the viewport, between header and footer */
-:host {
-  position: fixed;
-  top: var(--header-h);
-  left: 0;
-  right: 0;
-  bottom: var(--footer-h);
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; /* smooth iOS */
-  z-index: 0;                        /* header stays above if it has higher z-index */
-}
-
-/* If you added the full-screen background earlier, keep it here */
-:host {
-  background-image: $img;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;      /* optional */
-  isolation: isolate;
-}
-:host::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,.4);        /* readability overlay */
-  z-index: 0;
-}
-.concerts,
-.concerts > .align-with-header,
-.concerts > .site-container {
-  position: relative;
-  z-index: 1;                        /* above overlay */
-}
-
-/* Your existing layout (title, cards, etc.) keeps working */
-.concerts { padding: clamp(24px, 5vw, 56px) var(--site-gutter, 24px); }
-
-
-/* Cancelled state styling */
+/* ===== CANCELLED STATE ===== */
 .card.is-cancelled {
   filter: grayscale(1) opacity(.85);
   background: rgba(20,20,20,.68);
-  border-color: rgba(220, 53, 69, .35); /* soft red tint */
+  border-color: rgba(220, 53, 69, .35);
+
+  .title {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(220, 53, 69, .85);
+    opacity: .9;
+  }
+
+  .meta,
+  .desc {
+    opacity: .8;
+  }
+
+  .date-badge .month {
+    background: rgba(255, 196, 68, .35);
+    color: #121212;
+  }
 }
 
-.card.is-cancelled .title {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  text-decoration-color: rgba(220, 53, 69, .85);
-  opacity: .9;
-}
-
-.card.is-cancelled .meta,
-.card.is-cancelled .desc { opacity: .8; }
-
-/* Tickets disabled look (fallback when button hidden) */
-.badge.cancelled {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  font: 700 13px/1 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background: rgba(220, 53, 69, .14);
-  color: #ff6b7a;
-  border: 1px solid rgba(220, 53, 69, .35);
-}
-
-/* Corner ribbon */
 .ribbon.cancelled {
   position: absolute;
-  top: 10px; right: -18px; /* pull out to create a slanted tag */
-  transform: rotate(30deg);
+  top: 8px;
+  right: -16px;
+  transform: rotate(28deg);
   z-index: 3;
-  padding: 6px 16px;
-  font: 800 12px/1 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  padding: clamp(4px, 1vw, 6px) clamp(12px, 3vw, 16px);
+  font: 800 clamp(10px, 2vw, 12px)/1 'Montserrat', system-ui, sans-serif;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: #fff;
-  background: #e03a4e; /* vibrant, readable red */
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  background: #e03a4e;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
   pointer-events: none;
 }
 
-/* Keep month badge readable in cancelled cards */
-.card.is-cancelled .date-badge .month {
-  background: rgba(255, 196, 68, .35);  /* your gold, softened */
-  color: #121212;
+/* ===== MOBILE BREAKPOINTS ===== */
+@media (max-width: 720px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: clamp(10px, 3vw, 12px);
+  }
+  
+  .date-badge {
+    width: auto;
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid $stroke;
+    padding-bottom: 10px;
+    justify-self: start;
+    grid-template-columns: auto auto auto;
+    gap: 12px;
+    
+    .month,
+    .day,
+    .time {
+      margin: 0;
+    }
+    
+    .day {
+      font-size: clamp(28px, 7vw, 36px);
+    }
+  }
+  
+  .actions {
+    justify-self: start;
+    width: 100%;
+  }
+  
+  .ribbon.cancelled {
+    right: -20px;
+    top: 6px;
+    transform: rotate(12deg);
+  }
 }
 
-/* Make sure the ribbon doesn't collide on small screens */
-@media (max-width: 760px) {
-  .ribbon.cancelled { right: -24px; top: 8px; transform: rotate(12deg); }
+@media (max-width: 480px) {
+  .concerts {
+    padding: clamp(12px, 3vw, 16px) clamp(10px, 3vw, 12px);
+  }
+  
+  .card {
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .btn {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ===== SMALL DEVICES (< 360px) ===== */
+@media (max-width: 360px) {
+  .date-badge {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding-bottom: 8px;
+    
+    .day {
+      font-size: 28px;
+    }
+  }
+  
+  .title {
+    font-size: 16px;
+  }
+  
+  .desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
 }
