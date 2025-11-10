@@ -13,3 +13,44 @@ $black: #1c1c1c;
   width: min(1200px, 92vw);
   margin-inline: auto;
 }
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  flex: 1;
+  min-width: fit-content;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  a {
+    color: #cfcfcf;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &.is-active {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

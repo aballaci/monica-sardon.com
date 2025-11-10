@@ -1,3 +1,11 @@
 <footer class="footer">
-  <div class="container">{{ text }}</div>
+  <div class="container">
+    <div class="footer-content">
+      <div class="copyright">{{ text }}</div>
+      <nav class="footer-nav">
+        <a routerLink="/impressum" routerLinkActive="is-active">Impressum</a>
+        <a routerLink="/terms-of-services" routerLinkActive="is-active">Datenschutzerklärung</a>
+      </nav>
+    </div>
+  </div>
 </footer>

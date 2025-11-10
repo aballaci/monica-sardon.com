@@ -7,12 +7,15 @@ $ink: #0f0f0f;
 $black: #1c1c1c;
 $muted: #6b6b6b;
 
-:host { display: block; }
+:host {
+  display: block;
+}
 
 /* ===== HEADER SHELL ===== */
 .site-header {
   background: #fff;
   padding: 0;
+  z-index: 10;
 }
 
 .shell {
@@ -40,7 +43,9 @@ $muted: #6b6b6b;
   transition: opacity .15s ease;
 }
 
-.brand:hover { opacity: .8; }
+.brand:hover {
+  opacity: .8;
+}
 
 /* ===== NAVIGATION ===== */
 .mainnav {
@@ -62,7 +67,9 @@ $muted: #6b6b6b;
   white-space: nowrap;
 }
 
-.mainnav a:hover { color: $ink; }
+.mainnav a:hover {
+  color: $ink;
+}
 
 .mainnav a.is-active {
   color: $ink;
@@ -119,7 +126,9 @@ $muted: #6b6b6b;
   flex-shrink: 0;
 }
 
-.label { opacity: .95; }
+.label {
+  opacity: .95;
+}
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -170,13 +179,13 @@ $muted: #6b6b6b;
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(0,0,0,.08);
+  background: rgba(0, 0, 0, .08);
   transition: transform .15s ease, background .15s ease;
 }
 
 .socials a:hover {
   transform: translateY(-1px);
-  background: rgba(0,0,0,.14);
+  background: rgba(0, 0, 0, .14);
 }
 
 .socials svg {
@@ -199,7 +208,7 @@ $muted: #6b6b6b;
     grid-template-columns: auto 1fr auto;
     gap: 8px;
   }
-  
+
   .mainnav {
     gap: 12px;
   }
@@ -215,32 +224,33 @@ $muted: #6b6b6b;
     gap: 8px 12px;
     padding: 10px 0;
   }
-  
+
   .brand {
     font-size: 1.4em;
   }
-  
+
   .mainnav {
     justify-self: start;
     gap: clamp(14px, 4vw, 18px);
     padding-top: 8px;
   }
-  
+
   .mainnav a {
     font-size: 13px;
     padding: 6px 0;
   }
-  
+
   /* Move gold dash to bottom on mobile */
   .mainnav a.is-active::before {
     top: auto;
     bottom: 24px;
   }
-  
+
   .label {
-    display: none; /* Show flags only */
+    display: none;
+    /* Show flags only */
   }
-  
+
   .pill {
     padding: 6px 8px;
   }
@@ -251,36 +261,36 @@ $muted: #6b6b6b;
   .shell {
     width: 95vw;
   }
-  
+
   .brand {
     font-size: 1.2em;
     letter-spacing: -.5px;
   }
-  
+
   .mainnav {
     gap: 10px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
-  
+
   .mainnav a {
     font-size: 12px;
   }
-  
+
   .roles {
     font-size: 20px;
   }
-  
+
   .socials a {
     width: 32px;
     height: 32px;
   }
-  
+
   .socials svg {
     width: 16px;
     height: 16px;
@@ -292,11 +302,11 @@ $muted: #6b6b6b;
   .brand {
     font-size: 1.2em;
   }
-  
+
   .mainnav {
     gap: 8px;
   }
-  
+
   .mainnav a {
     font-size: 11px;
   }

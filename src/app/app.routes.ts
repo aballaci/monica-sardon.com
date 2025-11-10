@@ -4,6 +4,8 @@ import { PhotoBannerComponent } from './photo-banner/photo-banner.component';
 import { ConcertsComponent } from './concerts/concerts';
 import { BioComponent } from './bio/bio.component';
 import { ContactsComponent } from './contact/contact.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { TermsOfServicesComponent } from './terms-of-services/terms-of-services.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +27,14 @@ export const routes: Routes = [
         {
         path: 'contact',
         component: ContactsComponent
+    },
+    {
+        path: 'impressum',
+        component: ImpressumComponent
+    },
+    {
+        path: 'terms-of-services',
+        component: TermsOfServicesComponent
     },
     { path: '**', redirectTo: '' },                 // fallback
 
